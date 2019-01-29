@@ -1,0 +1,137 @@
+<div class="cont">
+
+    <div class="container">
+
+
+        <form method="post" id="contact" (ngSubmit)="onSubmit()" novalidate>
+            <div class="form-group row">
+                <h1 class="primarytext"> Création d'un compte Entreprise</h1>
+            </div>
+
+            <div class="form-group row">
+                <h5 class="secondarytext"><span class="tab-space">Avez-vous un compte? <a class="text-info">Connectez-vous</a></span>
+                </h5>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="id_email" class="col-sm-3 col-form-label">Email address</label>
+                <div class="col-sm-4">
+                    <input type="email" name="email"  class="form-control" [(ngModel)]="company.user.email"
+                        placeholder="exemple@gmail.com" maxlength="255" autofocus required id="id_email">
+                </div>
+                <div class="col-sm-1">
+                    <b>OU</b>
+                </div>
+                <div class="col-sm-4">
+
+                    <a class="btn btn-block btn-social btn-google" href="">
+                        <span class="fa fa-google"></span> Sign in with Google
+                    </a>
+                </div>
+
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="id_first_name" class="col-sm-3 col-form-label">Prénom</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control"  placeholder="Votre Prénom" [(ngModel)]="company.user.first_name"
+                        name="first_name" maxlength="120" required id="id_first_name">
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-4">
+                    <a class="btn btn-block btn-social btn-linkedin" href="">
+                        <span class="fa fa-linkedin"></span> Sign in with LinkedIn
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="id_last_name" class="col-sm-3 col-form-label">Nom</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" placeholder="Votre Nom" [(ngModel)]="company.user.last_name"
+                        name="last_name" maxlength="120" required id="id_last_name">
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label for="companyname" class="col-sm-3 col-form-label">Nom de L'entreprise</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" placeholder="Ex: Google" [(ngModel)]="company.company_name"
+                        name="companyname" maxlength="120" required id="companyname">
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label for="id_image" class="col-sm-3 col-form-label">Logo de l'entreprise</label>
+                <div class="col-sm-4">
+                    <input id="id_image" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChanged($event)"
+                        type="file" name="image">
+
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label for="pays" class="col-sm-3 col-form-label">Pays</label>
+                <div class="col-sm-4">
+                    <select name="country" class="form-control" id="pays" (change)="onChange($event.target.value)">
+                        <option value=""></option>
+                        <option *ngFor="let country of countries" value="{{country.code}}">{{country.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="city" class="col-sm-3 col-form-label">Ville</label>
+                <div class="col-sm-4">
+                    <select name="city" class="form-control" id="city" (change)="cityOnChange($event.target.value)">
+                        <option *ngFor="let city of selectedCities" value="{{city.id}}">{{city.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="companywebsite" class="col-sm-3 col-form-label">Website de l'entreprise</label>
+                <div class="col-sm-4">
+                    <input type="url" class="form-control" placeholder="Ex: https://www.nike.com/" [(ngModel)]="company.website" name="companywebsite" maxlength="120" required id="companywebsite">
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="id_password1" class="col-sm-3 col-form-label">Mot de Passe</label>
+                <div class="col-sm-4">
+                    <input type="password" [(ngModel)]="company.user.password" name="password1" class="form-control"
+                        placeholder="Mot de Passe" required id="id_password1">
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="id_password2" class="col-sm-3 col-form-label">Confirmation</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" placeholder="Confirmation de Mot de Passe" name="password2"
+                        required id="id_password2">
+                </div>
+
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-success">Sign up</button>
+        </form>
+
+
+    </div>
+
+
+</div>

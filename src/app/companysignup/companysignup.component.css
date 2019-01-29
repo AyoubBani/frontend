@@ -1,0 +1,73 @@
+@import url('../../assets/css/bootstrap-social.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('http://fonts.googleapis.com/css?family=Lato:400,700');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    line-height: 30px;
+    background: #e7e9ed;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#sticky {
+    background-color: #000000
+}
+
+.primarytext {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #000000;
+}
+
+.secondarytext {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #3b3b3b;
+}
+
+span.tab-space {
+    padding-left: 1em;
+}
+
+#contact {
+    background: #FFFFFF;
+    padding: 25px;
+    margin: 150px 0;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#contact h3 {
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+#contact h4 {
+    margin: 5px 0 15px;
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+}

@@ -1,0 +1,153 @@
+<div class="cont">
+
+    <div class="container">
+
+
+        <form method="post" id="contact" (ngSubmit)="onSubmit()" novalidate>
+            <div class="form-group row">
+                <h1 class="primarytext"> Création de votre compte</h1>
+            </div>
+
+            <div class="form-group row">
+                <h5 class="secondarytext"><span class="tab-space">Avez-vous un compte? <a class="text-info">Connectez-vous</a></span>
+                </h5>
+            </div>
+
+
+
+
+            <input type="hidden" name="csrfmiddlewaretoken" value="4SReyLdUomC3LTdHjMnjmMYDz3SovBCPZJvNrmlEfe7Xx6mXPH6Vcg7JqAj7V4rK">
+
+
+            <div class="form-group row">
+                <label for="id_email" class="col-sm-3 col-form-label">Email address</label>
+                <div class="col-sm-4">
+                    <input type="email" name="email" [(ngModel)]="candidate.user.email" class="form-control"
+                        placeholder="exemple@gmail.com" maxlength="255" autofocus required id="id_email">
+                </div>
+                <div class="col-sm-1">
+                    <b>OU</b>
+                </div>
+                <div class="col-sm-4">
+
+                    <a class="btn btn-block btn-social btn-google" href="">
+                        <span class="fa fa-google"></span> Sign in with Google
+                    </a>
+                </div>
+
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="id_first_name" class="col-sm-3 col-form-label">Prénom</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" [(ngModel)]="candidate.user.first_name" placeholder="Votre Prénom"
+                        name="first_name" maxlength="120" required id="id_first_name">
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-4">
+                    <a class="btn btn-block btn-social btn-linkedin" href="">
+                        <span class="fa fa-linkedin"></span> Sign in with LinkedIn
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="id_last_name" class="col-sm-3 col-form-label">Nom</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" [(ngModel)]="candidate.user.last_name" placeholder="Votre Nom"
+                        name="last_name" maxlength="120" required id="id_last_name">
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="id_image" class="col-sm-3 col-form-label">Image de Profile</label>
+                <div class="col-sm-4">
+                    <input id="id_image" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChanged($event)"
+                        type="file" name="image">
+
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label for="pays" class="col-sm-3 col-form-label">Pays</label>
+                <div class="col-sm-4">
+                    <select name="country" class="form-control" id="pays" (change)="onChange($event.target.value)">
+                        <option value=""></option>
+                        <option *ngFor="let country of countries" value="{{country.code}}">{{country.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="city" class="col-sm-3 col-form-label">Ville</label>
+                <div class="col-sm-4">
+                    <select name="city" class="form-control" id="city" (change)="cityOnChange($event.target.value)">
+                        <option *ngFor="let city of selectedCities" value="{{city.id}}">{{city.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="metier" class="col-sm-3 col-form-label">Métier</label>
+                <div class="col-sm-4">
+                    <select class="form-control" id='metier' (change)="metierOnChange($event.target.value)">
+                        <optgroup *ngFor="let group of metiersInterface" [label]="group.name" [disabled]="group.disabled">
+                            <option *ngFor="let metier of group.metiers" [value]="metier.value">
+                                {{metier.viewValue}}
+                            </option>
+                        </optgroup>
+                    </select>
+
+
+                </div>
+
+            </div>
+        
+            <div class="form-group row">
+                <label for="id_domaine" class="col-sm-3 col-form-label">Experience</label>
+                <div class="col-sm-4">
+                    <select class="form-control" name="experience" [(ngModel)]="candidate.metier.experience">
+                        <option value="1">Débutant</option>
+                        <option value="2">Moins de 1 an</option>
+                        <option value="3">De 1 à 3 ans</option>
+                        <option value="4">De 3 à 5 ans</option>
+                        <option value="5">De 5 à 10 ans</option>
+                        <option value="6">De 10 à 20 ans</option>
+                        <option value="7">Plus de 20 ans</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="id_password1" class="col-sm-3 col-form-label">Mot de Passe</label>
+                <div class="col-sm-4">
+                    <input type="password" [(ngModel)]="candidate.user.password" name="password1" class="form-control"
+                        placeholder="Mot de Passe" required id="id_password1">
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="id_password2" class="col-sm-3 col-form-label">Confirmation</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" placeholder="Confirmation de Mot de Passe" name="password2"
+                        required id="id_password2">
+                </div>
+
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-success">Sign up</button>
+        </form>
+
+
+    </div>
+
+
+</div>

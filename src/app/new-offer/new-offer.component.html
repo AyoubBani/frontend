@@ -1,0 +1,46 @@
+<div class="cont">
+
+  <div class="container">
+
+
+    <form method="post" id="contact" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-group row">
+        <h1 class="primarytext"> Création de votre compte</h1>
+      </div>
+
+      <div class="form-group row">
+        <h5 class="secondarytext"><span class="tab-space">Avez-vous un compte? <a class="text-info">Connectez-vous</a></span>
+        </h5>
+      </div>
+      <div class="form-group row">
+        <!-- <label for="title" class="col-sm-3 col-form-label">Title</label> -->
+        <div class="col-sm-8">
+          <input type="text" class="form-control" placeholder="Job Title" name="title" maxlength="120" required id="title">
+        </div>
+
+      </div>
+
+
+      <div class="form-group row">
+        <!-- <label for="description" class="col-sm-3 col-form-label">Content</label> -->
+        <div class="col-sm-8">
+          <textarea class="form-control" name="description" style="resize:none" rows="18" placeholder="Description" required>
+
+
+
+            </textarea>
+        </div>
+
+      </div>
+
+
+
+      <br>
+      <button type="submit" class="btn btn-success align-self-center">Sauvegarder</button>
+    </form>
+
+
+  </div>
+
+
+</div>

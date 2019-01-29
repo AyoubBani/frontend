@@ -1,0 +1,186 @@
+<!-- ========== HEADER ========== -->
+<header id="header" class="u-header u-header--modern u-header--bordered u-header--sticky-top-lg">
+    <div class="u-header__section">
+        <div id="logoAndNav" class="container-fluid">
+            <!-- Nav -->
+            <nav class="js-mega-menu navbar navbar-expand-lg u-header__navbar">
+                <!-- Logo -->
+                <div class="u-header__navbar-brand-wrapper">
+                    <a class="navbar-brand u-header__navbar-brand" href="index.html" aria-label="Space">
+                        <img class="u-header__navbar-brand-default" src="../../assets/img/logo/mlogo.svg" alt="Logo">
+                        <img class="u-header__navbar-brand-mobile" src="../../assets/img/logo/logo-short.svg" alt="Logo">
+                    </a>
+                </div>
+                <!-- End Logo -->
+
+                <!-- Responsive Toggle Button -->
+                <button type="button" class="navbar-toggler btn u-hamburger u-header__hamburger" aria-label="Toggle navigation"
+                    aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+                    <span class="d-none d-sm-inline-block">Menu</span>
+                    <span id="hamburgerTrigger" class="u-hamburger__box ml-3">
+                        <span class="u-hamburger__inner"></span>
+                    </span>
+                </button>
+                <!-- End Responsive Toggle Button -->
+
+                <!-- Navigation -->
+                <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse py-0">
+                    <ul class="navbar-nav u-header__navbar-nav">
+                        <!-- Home -->
+                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="fadeInUp"
+                            data-animation-out="fadeOut">
+                            <a id="homeMegaMenu" class="nav-link u-header__nav-link" routerLink="/home" aria-haspopup="true"
+                                aria-expanded="false" aria-labelledby="homeSubMenu">
+                                Home
+                            </a>
+
+                        </li>
+                        <!-- End Home -->
+
+
+                        <!-- Works -->
+                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="fadeInUp"
+                            data-animation-out="fadeOut">
+                            <a id="worksMegaMenu" class="nav-link u-header__nav-link" routerLink="/offres" aria-haspopup="true"
+                                aria-expanded="false" aria-labelledby="worksSubMenu">
+                                Recherche d'emploi
+                                <span class="fa fa-angle-down u-header__nav-link-icon"></span>
+                            </a>
+
+                            <!-- Works - Submenu -->
+                            <ul id="worksSubMenu" class="list-inline hs-sub-menu u-header__sub-menu mb-0" style="min-width: 220px;"
+                                aria-labelledby="worksMegaMenu">
+                                <!-- Classic -->
+                                <!-- Classic -->
+
+                                <!-- Full Width -->
+                                <!-- Full Width -->
+
+                                <!-- Single Page -->
+                                <li class="dropdown-item u-header__sub-menu-list-item">
+                                    <a class="nav-link u-header__sub-menu-nav-link" href="../portfolio/single-page-masonry.html">Par
+                                        Fonction</a>
+                                </li>
+                                <li class="dropdown-item u-header__sub-menu-list-item">
+                                    <a class="nav-link u-header__sub-menu-nav-link" href="../portfolio/single-page-masonry.html">Par
+                                        Secteur</a>
+                                </li>
+                                <li class="dropdown-item u-header__sub-menu-list-item">
+                                    <a class="nav-link u-header__sub-menu-nav-link" href="../portfolio/single-page-masonry.html">Par
+                                        Entreprise</a>
+                                </li>
+                                <!-- Single Page -->
+                            </ul>
+                            <!-- End Works - Submenu -->
+                        </li>
+                        <!-- End Works -->
+
+                        <!-- Blog -->
+                        <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="fadeInUp"
+                            data-animation-out="fadeOut">
+                            <a id="blogMegaMenu" class="nav-link u-header__nav-link" href="javascript:;" aria-haspopup="true"
+                                aria-expanded="false" aria-labelledby="blogSubMenu">
+                                Blog
+                            </a>
+                        </li>
+                        <!-- End Blog -->
+
+
+                        <!-- Starter - Link -->
+
+
+                        <li [hidden]="login" class="nav-item u-header__nav-item">
+                            <a class="nav-link u-header__nav-link" routerLink="/csignup">
+                                Employeur?
+                            </a>
+                        </li>
+                        <li [hidden]="candidate" class="nav-item u-header__nav-item">
+                                <!-- routerLink="/newoffer" -->
+                            <a class="nav-link u-header__nav-link" href="#" data-toggle="modal" data-target="#offer">
+                                Nouvelle offre
+                            </a>
+                        </li>
+
+                        <li [hidden]="login" class="nav-item u-header__nav-item">
+                            <a class="nav-link u-header__nav-link" routerLink="/signup">
+                                <!-- Starter -->
+                                Inscriez-vous
+                            </a>
+                        </li>
+                        <!-- End Starter - Link -->
+
+                        <!-- Button -->
+                        <li class="nav-item u-header__nav-item-btn">
+                            <!-- <a class="btn btn-sm btn-primary" href="#signupModal" role="button" -->
+                            <!-- data-modal-target="#signupModal" -->
+                            <!-- data-overlay-color="#151b26"> -->
+                            <!-- <span class="fa fa-user-circle mr-1"></span> -->
+                            <!-- Signin -->
+                            <!-- <a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-success mr-sm-2"><span
+                                  class="glyphicon glyphicon-user"></span> Connexion</a> -->
+                            <!-- <div *ngIf="login; else elseBlock"> -->
+                            <!-- </div> -->
+                            <a *ngIf="login; else elseBlock" (click)="logout()" class="btn btn-primary btn-danger mr-sm-2 text-white"><span
+                                    class="glyphicon glyphicon-user"></span> Deconnexion</a>
+                            <ng-template #elseBlock>
+
+                                <a href="#loginModal" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-success mr-sm-2"><span
+                                        class="glyphicon glyphicon-user"></span> Connexion</a>
+                            </ng-template>
+
+                        </li>
+                        <!-- End Button -->
+                        <li class="nav-item u-header__nav-item">
+
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- End Navigation -->
+
+            </nav>
+            <!-- End Nav -->
+        </div>
+    </div>
+</header>
+<!-- ========== END HEADER ========== -->
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="languageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="languageModalLabel">Log In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="divChooseDossier">
+                <form method="post" (ngSubmit)="onSubmit()">
+
+
+                    <div class="form-group">
+                        <label for="email" class="col-form-label">Email </label>
+                        <input type="text" [(ngModel)]="muser.email" name="email" class="form-control" placeholder="Ex: ahmed@gmail.com"
+                            id="email" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="password" class="col-form-label">Password </label>
+                        <input type="password" [(ngModel)]="muser.password" name="password" placeholder="********"
+                            class="form-control" id="password" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">LogIn</button>
+                </form>
+
+                <!-- <div class="modal-footer"> -->
+                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<!-- <div class="mt-6">
+  <h5 class="card-header"></h5>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
+<div class="card w-75 w3-margin-top">
+  <div class="card-body">
+    <h5 class="card-title text-center">{{offre.titre}}</h5>
+    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+    <p class="card-text" [innerHTML]="offre.description"></p>
+    <p class="card-text"><small class="text-muted">Contrat: {{offre.contrat.contrat}}</small></p>
+    <p class="card-text"><small class="text-muted">Salaire: {{offre.salaire}} Dh</small></p>
+
+    <!-- <a href="#" class="btn btn-primary">Button</a> -->
+  </div>
+</div>
+
+<div class="w-75 bxcan my-3 p-3 bg-white rounded shadow-sm">
+  <h6 class="border-bottom border-gray pb-2 mb-0">Candidats de l'offre</h6>
+
+  <div *ngFor="let app of applications" class="media text-muted pt-3">
+    <img src="{{app.candidate.user.profile_image}}" class="mr-2 rounded"
+      [ngStyle]="{'height': '64px', 'width': '64px'}">
+    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <!-- justify-content-between -->
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <strong class="text-gray-dark">{{app.candidate.user.first_name}} {{app.candidate.user.last_name}}</strong>
+        <!-- <p></p> -->
+        <!-- <div><a class="btn btn-primary text-light">Accept</a> -->
+          <!-- <a class="btn btn-info text-light">Refuse</a></div> -->
+          <div>
+              <small class="text-muted">Attachemnts</small>
+              <p *ngFor="let doc of app.attachement">                      
+                    <span class="d-block"><a target="_blank" href="{{doc.document}}">{{doc.nom}}</a></span>
+                </p>      
+                <small class="text-muted"><a href="#" (click)="letter(app)" data-toggle="modal" data-target="#letter">Lettre De Motivation</a></small>
+          </div>          
+      </div>
+      <!-- <span class="d-block">@username</span> -->
+    </div>
+  </div>
+
+  <small class="d-block text-right mt-3">
+    <a href="#">chercher des candidats</a>
+  </small>
+</div>
+
+<!-- <div class="card text-center">
+  <div class="card-header">
+    {{offre.titre}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div> -->
+
+<div class="modal fade" id="letter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Lettre de Motivation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div [innerHTML]="letterMotivation" class="modal-body">          
+        </div>        
+      </div>
+    </div>
+  </div>

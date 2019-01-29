@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('../../assets/css/carousel.css');
+/* .col-centered{} */
+#overlay {
+    opacity: 0.5;
+   filter: alpha(opacity=50); /* For IE8 and earlier */
+}

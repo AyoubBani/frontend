@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="w3-margin-top">
+    <div *ngFor="let off of offres" class="card mx-auto shadow-none" style="width: 50rem;">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="{{off.company.user.profile_image}}" alt="company logo" class="img-thumbnail">
+          </div>
+          <div class="col-md-6">
+            <h5 class="card-title">{{off.titre}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{off.metier.metier}}</h6>
+            <p class="card-text" [innerHTML]="off.description"></p>
+            <p class="card-text"><b>Contrat:</b> {{off.contrat.contrat}}</p>
+          </div>
+        </div>
+        <div class="row justify-content-md-center mt-2">          
+            <a href="#" (click)="selectOffer(off)" data-toggle="modal" data-target="#offer" class="btn btn-info">Postuler</a>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="offer" tabindex="-1" role="dialog" aria-labelledby="offer" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="offer">Postuler à l'offre</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="divChooseDossier">
+        <form (ngSubmit)="submitApplication()">
+          <div class="form-group">
+            <!-- <textarea class="form-control" name="description" [(ngModel)]="offre.description" placeholder="Description..."></textarea> -->
+            <!-- editorContent -->            
+            <div [froalaEditor]="options" [(froalaModel)]="application.lettre_motivation"></div>
+          </div>
+          <div class="form-group">
+            <label for='cv'>Cv*</label>
+            <!-- <select id="contrat" class="form-control" (change)="contratOnChange($event.target.value)"> -->
+            <select id="cv" class="form-control" (change)="cvOnChange($event.target.value)">
+                <option disabled selected value> -- Selectionnez votre CV -- </option>
+              <option *ngFor="let doc of documents" value="{{doc.nom}}">{{doc.nom}}</option>
+              <!-- <option>MonCv</option> -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for='pj'>Autre pièce jointe</label>
+            <!-- <select id="contrat" class="form-control" (change)="contratOnChange($event.target.value)"> -->
+            <select id="pj" class="form-control" (change)="pjOnChange($event.target.value)">
+              <!-- <option *ngFor="let contrat of contrats" value="{{contrat.id}}">{{contrat.contrat}}</option> -->
+              <option disabled selected value> -- Autres pieces jointes -- </option>
+              <option *ngFor="let doc of documents" value="{{doc.nom}}">{{doc.nom}}</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
